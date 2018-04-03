@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 seconds">
+
+    <property name="LOG_FILE" value="${app.home}/logs/cs-test.log" />
+
+    <!-- Stop output INFO at start -->
+    <statusListener class="ch.qos.logback.core.status.NopStatusListener" />
+
+    <appender name="FILE_ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_FILE}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <!-- keep 30 days' worth of history capped at 3GB total size -->
+            <maxHistory>30</maxHistory>
+            <fileNamePattern>${LOG_FILE}.%d{yyyy-MM-dd}.log</fileNamePattern>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>%-30(%d{HH:mm:ss.SSS} [%thread]) | %-5level | %40.40logger{40} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%-30(%d{HH:mm:ss.SSS} [%thread]) | %-5level | %40.40logger{40} - %msg%n</pattern>
+        </layout>
+    </appender>
+
+    <logger name="org.springframework" level="error" additivity="false">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE_ROLLING"/>
+    </logger>
+
+    <logger name="com.secangkirkopipanas.cstest" level="debug" additivity="false">
+        <appender-ref ref="FILE_ROLLING"/>
+    </logger>
+
+    <root level="error">
+        <appender-ref ref="FILE_ROLLING"/>
+    </root>
+
+</configuration>
