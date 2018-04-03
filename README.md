@@ -1,28 +1,26 @@
-# README #
+# Test Code for CreditSuisse #
 
+## Description ##
 
-### What is this repository for? ###
+This application checks the availability of the given list of URL.
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+## Version ##
 
-### How do I get set up? ###
+1.0-SNAPSHOT
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+## How to use ##
 
-### Contribution guidelines ###
+Execute this command to start the application:
+* In Unix
+   ```
+   $JAVA_HOME/bin/java -jar cs-test-1.0-SNAPSHOT.jar com.secangkirkopipanas.cstest.Application -u <comma-separated URLs> -i <interval time in seconds> -m <maximum tries>
+   ```
+* In Windows
+   ```
+   %JAVA_HOME%\bin\java.exe -jar cs-test-1.0-SNAPSHOT.jar com.secangkirkopipanas.cstest.Application -u <comma-separated URLs> -i <interval time in seconds> -m <maximum tries>
+   ```
 
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+   ### Available options ###
+   * -u <value>, --urls <value>     : Comma-separated URLs will be checked by the application
+   * -i <value>, --interval <value> : Interval time in seconds
+   * -m <value>, --maxtries <value> : Maximum number of tries
