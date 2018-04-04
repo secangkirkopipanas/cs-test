@@ -22,7 +22,7 @@ public class URLChecker {
     private CloseableHttpResponse response;
 
     private String getStatusString(int statusCode, String strChecker) throws IOException {
-        String statusStr = null;
+        String statusStr;
         if (statusCode == 200) {
             byte[] responseBodyByte = EntityUtils.toByteArray(response.getEntity());
             String responseBody = new String(responseBodyByte);
@@ -55,9 +55,9 @@ public class URLChecker {
 
     public String healthStatus(String url, int interval, int maxtries, String strChecker) throws IOException, InterruptedException {
 
-        int statusCode = 0;
+        int statusCode;
         long responseTime = 0;
-        String statusStr = "";
+        String statusStr;
 
         StringBuilder sBuilder = new StringBuilder();
 
@@ -86,7 +86,8 @@ public class URLChecker {
                     .append(",")
                     .append(url)
                     .append(",")
-                    .append(responseTime + "ms")
+                    .append(responseTime)
+                    .append("ms")
                     .append("\n");
 
             if (statusCode != 200 && statusCode != 401 && statusCode != 403) {
