@@ -76,8 +76,8 @@ Execute this command to start the application:
    ### Expected output ###
    
    ```
-   2018-04-04 22:01:21.165,GREEN,http://www.yahoo.com,524ms
-   2018-04-04 22:01:21.273,GREEN,http://www.google.com,107ms
+   2018-04-04 22:01:21.165,GREEN,http://www.google.com,524ms
+   2018-04-04 22:01:21.273,GREEN,http://www.yahoo.com,107ms
    ```
 
 ## Other related softwares ##
