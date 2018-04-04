@@ -33,7 +33,7 @@ public class Application {
 
     private void usage() {
         HelpFormatter formatter = new HelpFormatter();
-        formatter.printHelp( "$JAVA_HOME/bin/java com.secangkirkopipanas.cstest.Application", options);
+        formatter.printHelp( "$JAVA_HOME/bin/java -jar cs-test-1.0-SNAPSHOT-jar-with-dependencies.jar com.secangkirkopipanas.cstest.Application", options);
     }
 
     public void start(String[] args) {
@@ -52,9 +52,11 @@ public class Application {
                 maxtries = Integer.parseInt(line.getOptionValue("m"));
             }
 
-            logger.debug("URLs     : " + urlAsList);
-            logger.debug("Interval : " + interval);
-            logger.debug("Max Tries: " + maxtries);
+            if (logger.isDebugEnabled()) {
+                logger.debug("URLs     : " + urlAsList);
+                logger.debug("Interval : " + interval);
+                logger.debug("Max Tries: " + maxtries);
+            }
 
             System.out.println(urlChecker.healthStatus(urlAsList));
 

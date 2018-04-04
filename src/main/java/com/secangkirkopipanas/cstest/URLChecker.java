@@ -26,7 +26,7 @@ public class URLChecker {
         return httpclient.execute(httpGet);
     }
 
-    public String healthStatus(String url, int interval, int maxtries) throws IOException {
+    public String healthStatus(String url, int interval, int maxtries, String strChecker) throws IOException {
 
         int statusCode = 0;
         long responseTime = 0;
@@ -43,7 +43,6 @@ public class URLChecker {
                 long endTime = System.currentTimeMillis();
                 statusCode = response.getStatusLine().getStatusCode();
                 responseTime = endTime - startTime;
-                response.close();
             } catch (UnknownHostException exp) {
                 statusCode = 404;
             }
@@ -54,7 +53,13 @@ public class URLChecker {
                 logger.debug("Status Code: {}", statusCode);
                 logger.debug("Response Time: {}", responseTime + "ms");
 
-                if (responseBody.contains("Component Status: GREEN")) {
+                if (strChecker != null && !strChecker.trim().equalsIgnoreCase("")) {
+                    if (responseBody.contains(strChecker)) {
+                        statusStr = "GREEN";
+                    } else {
+                        statusStr = "BLUE";
+                    }
+                } else {
                     statusStr = "GREEN";
                 }
 
@@ -89,16 +94,29 @@ public class URLChecker {
             }
         }
 
+        response.close();
         return sBuilder.toString();
     }
 
-    public String healthStatus(List<String> urls) throws IOException {
+    public String healthStatus(String url, int interval, int maxtries) throws IOException {
+        return healthStatus(url, interval, maxtries, null);
+    }
+
+    public String healthStatus(List<String> urls, int interval, int maxtries, String strChecker) throws IOException {
         String output = "";
         for (String url : urls) {
-            String healthStatus = healthStatus(url, 0, 3);
+            String healthStatus = healthStatus(url, interval, maxtries, strChecker);
             output += healthStatus;
         }
         return output;
+    }
+
+    public String healthStatus(List<String> urls, int interval, int maxtries) throws IOException {
+        return healthStatus(urls, interval, maxtries, null);
+    }
+
+    public String healthStatus(List<String> urls) throws IOException {
+        return healthStatus(urls, 1, 3);
     }
 
 }
