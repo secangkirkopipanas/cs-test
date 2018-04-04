@@ -57,6 +57,12 @@ Execute this command to start the application:
    $JAVA_HOME/bin/java -jar cs-test-1.0-SNAPSHOT-jar-with-dependencies.jar com.secangkirkopipanas.cstest.Application -u http://www.google.com,http://www.yahoo.com -i 1 -m 3
    ```
 
+   or,
+
+   ```
+   $JAVA_HOME/bin/java -jar cs-test-1.0-SNAPSHOT-jar-with-dependencies.jar com.secangkirkopipanas.cstest.Application -urls=http://www.google.com,http://www.yahoo.com -interval=1 -maxtries=3
+   ````
+
 
 ## Other related softwares ##
 
