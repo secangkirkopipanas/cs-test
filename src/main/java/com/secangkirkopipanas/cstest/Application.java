@@ -38,7 +38,7 @@ public class Application {
 
     public String getHealthStatusOutput(String[] args) {
 
-        List<String> urlAsList = null;
+        List<String> urlAsList;
 
         try {
             // parse the command line arguments
