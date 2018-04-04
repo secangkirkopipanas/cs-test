@@ -75,9 +75,27 @@ Execute this command to start the application:
 
    ### Expected output ###
    
+   If all URLs is available and contains an expected string in the output
+   
    ```
    2018-04-04 22:01:21.165,GREEN,http://www.google.com,524ms
    2018-04-04 22:01:21.273,GREEN,http://www.yahoo.com,107ms
+   ```
+   
+   If there is not available URL
+   
+   ```
+   2018-04-04 22:09:10.837,NOT AVAILABLE,http://www.googleaasasasdas.com,10000ms
+   2018-04-04 22:09:11.839,NOT AVAILABLE,http://www.googleaasasasdas.com,10000ms
+   2018-04-04 22:09:12.840,NOT AVAILABLE,http://www.googleaasasasdas.com,10000ms
+   2018-04-04 22:09:14.319,GREEN,http://www.yahoo.com,268ms
+   ```
+   
+   If there is unauthorized URL
+      
+   ```
+   2018-04-04 22:09:10.837,UNAUTHORIZED,http://www.googleaasdas.com,78ms
+   2018-04-04 22:09:14.319,GREEN,http://www.yahoo.com,268ms
    ```
 
 ## Other related softwares ##

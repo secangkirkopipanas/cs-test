@@ -92,7 +92,7 @@ public class URLChecker {
                     .append(",")
                     .append(url)
                     .append(",")
-                    .append(responseTime)
+                    .append((statusStr.equalsIgnoreCase("NOT AVAILABLE") ? Constants.RESPONSE_TIME_THRESHOLD_IN_MS : responseTime))
                     .append("ms")
                     .append("\n");
 
