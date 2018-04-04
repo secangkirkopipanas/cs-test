@@ -2,6 +2,10 @@ package com.secangkirkopipanas.cstest;
 
 public class Constants {
 
-    public final static String DEFAULT_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss.SSS";
-    public final static String TIMEZONE = "Asia/Singapore";
+    private Constants() {
+        super();
+    }
+
+    public static final String DEFAULT_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss.SSS";
+    public static final String TIMEZONE = "Asia/Singapore";
 }

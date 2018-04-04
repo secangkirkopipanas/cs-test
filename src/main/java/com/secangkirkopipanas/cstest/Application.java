@@ -19,13 +19,13 @@ public class Application {
     private Options options = new Options();
     private CommandLineParser parser = new DefaultParser();
 
-    private List<String> urlAsList = null;
     private int interval = 1;
     private int maxtries = 3;
 
     private URLChecker urlChecker = new URLChecker();
 
     public Application() {
+        super();
         options.addRequiredOption("u", "urls", true, "URLs to be checked");
         options.addOption("i", "interval", true, "Interval time for the checking");
         options.addOption("m", "maxtries", true, "Maximum number of tries");
@@ -36,7 +36,9 @@ public class Application {
         formatter.printHelp( "$JAVA_HOME/bin/java -jar cs-test-1.0-SNAPSHOT-jar-with-dependencies.jar com.secangkirkopipanas.cstest.Application", options);
     }
 
-    public void start(String[] args) {
+    public String getHealthStatusOutput(String[] args) {
+
+        List<String> urlAsList = null;
 
         try {
             // parse the command line arguments
@@ -53,25 +55,26 @@ public class Application {
             }
 
             if (logger.isDebugEnabled()) {
-                logger.debug("URLs     : " + urlAsList);
-                logger.debug("Interval : " + interval);
-                logger.debug("Max Tries: " + maxtries);
+                logger.debug("URLs     : {}", urlAsList);
+                logger.debug("Interval : {}", interval);
+                logger.debug("Max Tries: {}", maxtries);
             }
 
-            System.out.println(urlChecker.healthStatus(urlAsList));
+            return urlChecker.healthStatus(urlAsList);
 
         } catch (ParseException exp) {
             usage();
         } catch (Exception exp) {
-            exp.printStackTrace();
-            System.err.println("Unexpected exception: " + exp.getMessage());
+            logger.error("Unexpected exception: {}", exp.getMessage());
             System.exit(2);
         }
+
+        return null;
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         Application app = new Application();
-        app.start(args);
+        logger.info(app.getHealthStatusOutput(args));
     }
 
 }

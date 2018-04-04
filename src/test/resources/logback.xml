@@ -22,7 +22,7 @@
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <layout class="ch.qos.logback.classic.PatternLayout">
-            <pattern>%-30(%d{HH:mm:ss.SSS} [%thread]) | %-5level | %40.40logger{40} - %msg%n</pattern>
+            <pattern>%msg%n</pattern>
         </layout>
     </appender>
 
@@ -31,8 +31,12 @@
         <appender-ref ref="FILE_ROLLING"/>
     </logger>
 
-    <logger name="com.secangkirkopipanas.cstest.test" level="debug" additivity="false">
+    <logger name="com.secangkirkopipanas.cstest" level="debug" additivity="false">
         <appender-ref ref="FILE_ROLLING"/>
+    </logger>
+
+    <logger name="com.secangkirkopipanas.cstest.Application" level="info" additivity="true">
+        <appender-ref ref="STDOUT"/>
     </logger>
 
     <root level="error">

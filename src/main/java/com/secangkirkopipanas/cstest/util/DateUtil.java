@@ -9,6 +9,10 @@ import java.util.TimeZone;
 
 public class DateUtil {
 
+    private DateUtil() {
+        super();
+    }
+
     public static String format(long timestamp, String pattern) {
         return format(timestamp, pattern, Constants.TIMEZONE);
     }

@@ -24,7 +24,7 @@ public class URLCheckerTest {
     }
 
     @Test
-    public void testHealthStatus() throws IOException {
+    public void testHealthStatus() throws IOException, InterruptedException {
         // URLChecker.healthStatus() test with single URL
         Assert.assertTrue(urlChecker.healthStatus(url, 1, 1).contains("GREEN"));
         Assert.assertTrue(urlChecker.healthStatus(url, 1, 1, "Component Status: GREEN").contains("BLUE"));
