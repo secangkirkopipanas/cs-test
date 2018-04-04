@@ -2,13 +2,11 @@ package com.secangkirkopipanas.cstest.test;
 
 import com.secangkirkopipanas.cstest.Application;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Scanner;

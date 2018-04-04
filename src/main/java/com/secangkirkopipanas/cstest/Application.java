@@ -54,11 +54,9 @@ public class Application {
                 maxtries = Integer.parseInt(line.getOptionValue("m"));
             }
 
-            if (logger.isDebugEnabled()) {
-                logger.debug("URLs     : {}", urlAsList);
-                logger.debug("Interval : {}", interval);
-                logger.debug("Max Tries: {}", maxtries);
-            }
+            logger.debug("URLs     : {}", urlAsList);
+            logger.debug("Interval : {}", interval);
+            logger.debug("Max Tries: {}", maxtries);
 
             return urlChecker.healthStatus(urlAsList);
 
