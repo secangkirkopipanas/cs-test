@@ -1,5 +1,9 @@
 # Test Code for CreditSuisse #
 
+## Author ##
+
+[Robertus Lilik Haryanto]
+
 ## Description ##
 
 This application checks the availability of the given list of URL.
@@ -72,6 +76,7 @@ Code quality scanner: [SonarCloud]
 
 
 
+[Robertus Lilik Haryanto]: mailto:robert.djokdja@gmail.com
 [Apache Maven v3.5.3]: http://www-us.apache.org/dist/maven/maven-3/3.5.3/binaries/apache-maven-3.5.3-bin.zip
 [Travis-CI]: https://travis-ci.org/secangkirkopipanas/cs-test
 [SonarCloud]: https://sonarcloud.io/dashboard?id=com.secangkirkopipanas.cstest%3Acs-test

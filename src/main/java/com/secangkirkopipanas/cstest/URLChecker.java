@@ -27,7 +27,7 @@ public class URLChecker {
         httpclient = HttpClientBuilder.create().setDefaultRequestConfig(requestConfig).build();
     }
 
-    private String getStatusString(int statusCode, String strChecker) throws IOException {
+    public String getStatusString(int statusCode, String strChecker) throws IOException {
         String statusStr;
         if (statusCode == 200) {
             byte[] responseBodyByte = EntityUtils.toByteArray(response.getEntity());
@@ -110,6 +110,10 @@ public class URLChecker {
 
     public String healthStatus(String url, int interval, int maxtries) throws IOException, InterruptedException {
         return healthStatus(url, interval, maxtries, null);
+    }
+
+    public String healthStatus(String url) throws IOException, InterruptedException {
+        return healthStatus(url, 1, 3, null);
     }
 
     public String healthStatus(List<String> urls, int interval, int maxtries, String strChecker) throws IOException, InterruptedException {

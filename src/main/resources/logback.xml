@@ -37,6 +37,7 @@
 
     <logger name="com.secangkirkopipanas.cstest.Application" level="info" additivity="true">
         <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE_ROLLING "/>
     </logger>
 
     <root level="error">
