@@ -67,13 +67,13 @@ Execute this command to start the application:
    $JAVA_HOME/bin/java -jar cs-test-1.0-SNAPSHOT-jar-with-dependencies.jar com.secangkirkopipanas.cstest.Application -urls=http://www.google.com,http://www.yahoo.com -interval=1 -maxtries=3
    ````
    
-   ## Expected output format ##
+   ### Expected output format ###
    
    ```
    timestamp_epoch,status_check,url,response_time_ms
    ```
 
-   ## Expected output ##
+   ### Expected output ###
    
    ```
    2018-04-04 22:01:21.165,GREEN,http://www.yahoo.com,524ms
