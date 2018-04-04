@@ -1,7 +1,9 @@
 package com.secangkirkopipanas.cstest;
 
+import com.secangkirkopipanas.cstest.util.DateUtil;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.utils.DateUtils;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
@@ -11,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.net.UnknownHostException;
 import java.time.Instant;
+import java.util.Date;
 import java.util.List;
 
 public class URLChecker {
@@ -72,7 +75,7 @@ public class URLChecker {
             }
 
             sBuilder = sBuilder
-                    .append(Instant.now().toEpochMilli())
+                    .append(DateUtil.format(Instant.now().toEpochMilli(), Constants.DEFAULT_DATE_FORMAT, Constants.TIMEZONE))
                     .append(",")
                     .append(statusStr)
                     .append(",")
@@ -94,7 +97,7 @@ public class URLChecker {
             }
         }
 
-        response.close();
+        if (response != null) response.close();
         return sBuilder.toString();
     }
 
