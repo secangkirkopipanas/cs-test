@@ -33,6 +33,7 @@ $MVN_HOME/bin/mvn clean package
 ## How to use ##
 
 Execute this command to start the application:
+
 * In Unix
    ```
    $JAVA_HOME/bin/java -jar cs-test-<version>-jar-with-dependencies.jar com.secangkirkopipanas.cstest.Application -u <comma-separated URLs> -i <interval time in seconds> -m <maximum tries>
@@ -51,6 +52,7 @@ Execute this command to start the application:
 ## Other related softwares ##
 
 CI tools: [Travis-CI]
+
 Code quality scanner: [SonarCloud]
 
 
