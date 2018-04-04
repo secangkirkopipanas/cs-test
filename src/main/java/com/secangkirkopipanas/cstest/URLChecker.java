@@ -1,10 +1,14 @@
 package com.secangkirkopipanas.cstest;
 
 import com.secangkirkopipanas.cstest.util.DateUtil;
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpParams;
 import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,8 +22,13 @@ public class URLChecker {
 
     private static final Logger logger = LoggerFactory.getLogger(Application.class);
 
-    private CloseableHttpClient httpclient = HttpClients.createDefault();
+    private CloseableHttpClient httpclient;
     private CloseableHttpResponse response;
+
+    public URLChecker() {
+        RequestConfig requestConfig = RequestConfig.custom().setConnectTimeout(Constants.RESPONSE_TIME_THRESHOLD_IN_MS).build();
+        httpclient = HttpClientBuilder.create().setDefaultRequestConfig(requestConfig).build();
+    }
 
     private String getStatusString(int statusCode, String strChecker) throws IOException {
         String statusStr;
