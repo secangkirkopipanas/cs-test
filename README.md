@@ -1,28 +1,77 @@
-# README #
+# Test Code for CreditSuisse #
+
+## Description ##
+
+This application checks the availability of the given list of URL.
+
+## Version ##
+
+1.0-SNAPSHOT
 
 
-### What is this repository for? ###
+## How to build ##
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+###### Prerequisites ######
 
-### How do I get set up? ###
+* [Apache Maven v3.5.3]
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
 
-### Contribution guidelines ###
+###### From Unix command line ######
 
-* Writing tests
-* Code review
-* Other guidelines
+```
+$MVN_HOME/bin/mvn clean package
+```
 
-### Who do I talk to? ###
 
-* Repo owner or admin
-* Other community or team contact
+###### From Windows command line ######
+
+```
+%MVN_HOME%\bin\mvn clean package
+```
+
+
+## How to use ##
+
+Execute this command to start the application:
+
+* In Unix
+
+   ```
+   $JAVA_HOME/bin/java -jar cs-test-<version>-jar-with-dependencies.jar com.secangkirkopipanas.cstest.Application -u <comma-separated URLs> -i <interval time in seconds> -m <maximum tries>
+   ```
+* In Windows
+
+   ```
+   %JAVA_HOME%\bin\java.exe -jar cs-test-<version>-jar-with-dependencies.jar com.secangkirkopipanas.cstest.Application -u <comma-separated URLs> -i <interval time in seconds> -m <maximum tries>
+   ```
+
+   ### Available options ###
+
+   * -u <value>, --urls <value>     : Comma-separated URLs will be checked by the application (Mandatory)
+   * -i <value>, --interval <value> : Interval time in seconds (Optional, default valuen is 1)
+   * -m <value>, --maxtries <value> : Maximum number of tries (Optional, default value is 3)
+
+   ### Example ###
+
+   ```
+   $JAVA_HOME/bin/java -jar cs-test-1.0-SNAPSHOT-jar-with-dependencies.jar com.secangkirkopipanas.cstest.Application -u http://www.google.com,http://www.yahoo.com -i 1 -m 3
+   ```
+
+   or,
+
+   ```
+   $JAVA_HOME/bin/java -jar cs-test-1.0-SNAPSHOT-jar-with-dependencies.jar com.secangkirkopipanas.cstest.Application -urls=http://www.google.com,http://www.yahoo.com -interval=1 -maxtries=3
+   ````
+
+
+## Other related softwares ##
+
+CI tools: [Travis-CI]
+
+Code quality scanner: [SonarCloud]
+
+
+
+[Apache Maven v3.5.3]: http://www-us.apache.org/dist/maven/maven-3/3.5.3/binaries/apache-maven-3.5.3-bin.zip
+[Travis-CI]: https://travis-ci.org/secangkirkopipanas/cs-test
+[SonarCloud]: https://sonarcloud.io/dashboard?id=com.secangkirkopipanas.cstest%3Acs-test
