@@ -35,18 +35,27 @@ $MVN_HOME/bin/mvn clean package
 Execute this command to start the application:
 
 * In Unix
+
    ```
    $JAVA_HOME/bin/java -jar cs-test-<version>-jar-with-dependencies.jar com.secangkirkopipanas.cstest.Application -u <comma-separated URLs> -i <interval time in seconds> -m <maximum tries>
    ```
 * In Windows
+
    ```
    %JAVA_HOME%\bin\java.exe -jar cs-test-<version>-jar-with-dependencies.jar com.secangkirkopipanas.cstest.Application -u <comma-separated URLs> -i <interval time in seconds> -m <maximum tries>
    ```
 
    ### Available options ###
-   * -u <value>, --urls <value>     : Comma-separated URLs will be checked by the application
-   * -i <value>, --interval <value> : Interval time in seconds
-   * -m <value>, --maxtries <value> : Maximum number of tries
+
+   * -u <value>, --urls <value>     : Comma-separated URLs will be checked by the application (Mandatory)
+   * -i <value>, --interval <value> : Interval time in seconds (Optional, default valuen is 1)
+   * -m <value>, --maxtries <value> : Maximum number of tries (Optional, default value is 3)
+
+   ### Example ###
+
+   ```
+   $JAVA_HOME/bin/java -jar cs-test-1.0-SNAPSHOT-jar-with-dependencies.jar com.secangkirkopipanas.cstest.Application -u http://www.google.com,http://www.yahoo.com -i 1 -m 3
+   ```
 
 
 ## Other related softwares ##
