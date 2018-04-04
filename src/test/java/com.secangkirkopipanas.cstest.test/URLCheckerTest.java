@@ -4,9 +4,12 @@ import com.secangkirkopipanas.cstest.URLChecker;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.util.EntityUtils;
 import org.junit.Assert;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +19,15 @@ public class URLCheckerTest {
 
     private String url1 = "http://www.google.com";
     private String url2 = "http://www.yahoo.com";
+
+    private static String appHome;
+
+    @BeforeClass
+    public static void init() {
+        Path currentRelativePath = Paths.get("");
+        appHome = currentRelativePath.toAbsolutePath().toString();
+        System.setProperty("app.home", appHome);
+    }
 
     @Test
     public void testGetStatusString() throws IOException {
